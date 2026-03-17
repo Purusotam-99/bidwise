@@ -1,0 +1,124 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  admin
+  bidder
+}
+
+enum AuctionStatus {
+  active
+  closed
+}
+
+enum CreditTransactionType {
+  assign
+  reserve
+  refund
+  deduct
+}
+
+model User {
+  id                 String              @id @default(cuid())
+  name               String
+  email              String              @unique
+  password           String
+  role               Role                @default(bidder)
+  creditBalance      Float               @default(0)
+  digilockerVerified Boolean             @default(false)
+  fraudRiskScore     Int                 @default(0)
+  isSuspicious       Boolean             @default(false)
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  bids               Bid[]
+  createdAuctions    Auction[]           @relation("CreatedAuctions")
+  highestBidAuctions Auction[]           @relation("HighestBidderAuctions")
+  creditTransactions CreditTransaction[]
+  fraudLogs          FraudLog[]
+}
+
+model Auction {
+  id                String        @id @default(cuid())
+  title             String
+  description       String
+  imageURL          String?
+  startingPrice     Float
+  currentHighestBid Float         @default(0)
+  minimumIncrement  Float
+  startTime         DateTime
+  endTime           DateTime
+  status            AuctionStatus @default(active)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  createdById       String
+  highestBidderId   String?
+  createdBy         User          @relation("CreatedAuctions", fields: [createdById], references: [id], onDelete: Restrict)
+  highestBidder     User?         @relation("HighestBidderAuctions", fields: [highestBidderId], references: [id], onDelete: SetNull)
+  bids              Bid[]
+  creditLogs        CreditTransaction[]
+  fraudLogs         FraudLog[]
+  bidLedgerEntries  BidLedger[]
+
+  @@index([status, startTime, endTime])
+}
+
+model Bid {
+  id                String   @id @default(cuid())
+  auctionId         String
+  userId            String
+  bidAmount         Float
+  timestamp         DateTime @default(now())
+  deviceFingerprint String   @default("unknown")
+  ipAddress         String   @default("unknown")
+  browserInfo       String   @default("")
+  auction           Auction  @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([auctionId, timestamp])
+  @@index([userId, timestamp])
+  @@index([ipAddress, timestamp])
+}
+
+model CreditTransaction {
+  id             String                @id @default(cuid())
+  userId         String
+  amount         Float
+  type           CreditTransactionType
+  relatedAuction String?
+  createdAt      DateTime              @default(now())
+  user           User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  auction        Auction?              @relation(fields: [relatedAuction], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+  @@index([relatedAuction])
+}
+
+model FraudLog {
+  id          String   @id @default(cuid())
+  userId      String
+  auctionId   String
+  riskScore   Int
+  fraudReason String
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  auction     Auction  @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([auctionId, createdAt])
+}
+
+model BidLedger {
+  id        String   @id @default(cuid())
+  bidHash   String   @unique
+  auctionId String
+  timestamp DateTime @default(now())
+  auction   Auction  @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+
+  @@index([auctionId, timestamp])
+}

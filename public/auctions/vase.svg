@@ -1,0 +1,10 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="900" fill="#052E2B"/>
+<ellipse cx="600" cy="760" rx="250" ry="50" fill="#115E59"/>
+<path d="M520 190H680C690 260 720 300 770 360C820 420 840 500 840 590C840 690 735 760 600 760C465 760 360 690 360 590C360 500 380 420 430 360C480 300 510 260 520 190Z" fill="#F8FAFC"/>
+<path d="M500 150C500 132 514 118 532 118H668C686 118 700 132 700 150V190H500V150Z" fill="#E2E8F0"/>
+<path d="M470 430C520 360 680 360 730 430" stroke="#0F766E" stroke-width="20" stroke-linecap="round"/>
+<path d="M450 540C520 470 680 470 750 540" stroke="#14B8A6" stroke-width="20" stroke-linecap="round"/>
+<path d="M490 630C550 590 650 590 710 630" stroke="#0F766E" stroke-width="20" stroke-linecap="round"/>
+<text x="600" y="94" text-anchor="middle" fill="#ECFDF5" font-size="56" font-family="Arial, sans-serif" font-weight="700">Kyoto Ceramic Vase</text>
+</svg>

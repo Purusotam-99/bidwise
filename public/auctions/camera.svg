@@ -1,0 +1,13 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="900" fill="#172554"/>
+<rect x="210" y="290" width="780" height="360" rx="40" fill="#1F2937"/>
+<rect x="280" y="240" width="180" height="70" rx="20" fill="#334155"/>
+<rect x="760" y="250" width="110" height="40" rx="12" fill="#475569"/>
+<circle cx="610" cy="470" r="150" fill="#0F172A"/>
+<circle cx="610" cy="470" r="110" fill="#1D4ED8"/>
+<circle cx="610" cy="470" r="72" fill="#93C5FD"/>
+<circle cx="610" cy="470" r="28" fill="#E0F2FE"/>
+<rect x="300" y="370" width="120" height="30" rx="10" fill="#64748B"/>
+<text x="600" y="150" text-anchor="middle" fill="#DBEAFE" font-size="56" font-family="Arial, sans-serif" font-weight="700">Vintage Camera Lot</text>
+<text x="600" y="210" text-anchor="middle" fill="#BFDBFE" font-size="30" font-family="Arial, sans-serif">Analog Collector Set</text>
+</svg>

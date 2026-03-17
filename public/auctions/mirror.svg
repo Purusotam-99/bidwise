@@ -1,0 +1,11 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="900" fill="#1E1B4B"/>
+<rect x="250" y="120" width="700" height="660" rx="90" fill="#7C3AED"/>
+<rect x="310" y="180" width="580" height="540" rx="60" fill="#C4B5FD"/>
+<rect x="360" y="230" width="480" height="440" rx="40" fill="#E0E7FF"/>
+<path d="M410 280C520 210 680 210 790 280V620H410V280Z" fill="#BFDBFE"/>
+<circle cx="600" cy="440" r="120" fill="#93C5FD"/>
+<path d="M305 210L250 175L305 140" stroke="#FDE68A" stroke-width="16" stroke-linecap="round"/>
+<path d="M895 210L950 175L895 140" stroke="#FDE68A" stroke-width="16" stroke-linecap="round"/>
+<text x="600" y="92" text-anchor="middle" fill="#F8FAFC" font-size="56" font-family="Arial, sans-serif" font-weight="700">Victorian Mirror</text>
+</svg>

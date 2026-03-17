@@ -1,0 +1,11 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="900" fill="#292524"/>
+<rect x="280" y="180" width="640" height="500" rx="22" fill="#7C2D12"/>
+<rect x="330" y="210" width="540" height="440" rx="12" fill="#FDE68A"/>
+<rect x="575" y="180" width="50" height="500" fill="#92400E"/>
+<path d="M360 290H840" stroke="#B45309" stroke-width="10" stroke-linecap="round"/>
+<path d="M360 360H840" stroke="#B45309" stroke-width="10" stroke-linecap="round"/>
+<path d="M360 430H840" stroke="#B45309" stroke-width="10" stroke-linecap="round"/>
+<text x="600" y="130" text-anchor="middle" fill="#FAFAF9" font-size="56" font-family="Georgia, serif" font-weight="700">First Edition</text>
+<text x="600" y="560" text-anchor="middle" fill="#7C2D12" font-size="42" font-family="Georgia, serif">Signed Hardback</text>
+</svg>
